@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nea Landing — документация проекта
 
-## Getting Started
+Проект одностраничного сайта на Next.js (App Router) с акцентом на профориентацию. Реализованы общий хедер с навигацией и три раздела: «Менти», «Менторам», «Профориентация».
 
-First, run the development server:
+## Стек и принципы
+
+- Next.js 15 (App Router), TypeScript
+- React, серверный/клиентский рендеринг
+- Tailwind CSS для стилизации
+- Встроенные шрифты через `next/font`
+- Аналитика: `@vercel/analytics/next`
+
+Основные принципы:
+- Компонентная структура, переиспользуемые блоки в `components/`
+- Чистые семантические стили Tailwind, без магических инлайнов
+- Адаптивная верстка: мобильные и десктопные устройства поддерживаются в приоритете
+
+## Стиль и цвета
+
+- Фон страницы: `#2A2A2A`
+- Текст по умолчанию: белый (`#FFFFFF`)
+- Акцент в навигации (активный пункт): `#40758C`
+- Ранее используемые акцентные оттенки, встречающиеся в компонентах: `#305869`, `#6C92F2`
+- Пример градиента (см. `components/career-chart.tsx`): `from-[#305869] to-[#2A2A2A]`
+
+Шапка (`components/header.tsx`):
+- Sticky, `top-0`, тень/граница: `border-b border-white/10`
+- Фон: тот же серый, что и у страницы — `#2A2A2A`
+- Логотип слева, навигация сразу после логотипа, бургер справа
+- На десктопе: видны и горизонтальное меню, и бургер (для быстрого доступа к мобильному меню)
+- На мобильных: показаны логотип и бургер, горизонтальное меню скрыто
+- Отступы:
+  - Мобильные: `pl-8`
+  - Десктоп: `md:pl-36` (левый отступ ~ в 3 раза больше базового)
+  - Расстояние между пунктами меню и между логотипом и первым пунктом меню одинаковое: `gap-12`
+
+## Структура каталогов
+
+```
+app/
+  layout.tsx         # Общий layout: подключение глобальных стилей и Header
+  page.tsx           # Редирект на /proforientation
+  proforientation/
+    page.tsx         # Основной контент («Профориентация»)
+  menti/
+    page.tsx         # Заглушка «Менти»
+  mentors/
+    page.tsx         # Заглушка «Менторам»
+
+components/
+  header.tsx         # Шапка: логотип, горизонтальная навигация, бургер и мобильное меню
+  hero-section.tsx   # Герой-блок (декоративные изображения временно отключены)
+  free-service.tsx   # Блок «Nea доступна всем»
+  ...                # Прочие секции (process-steps, career-chart, trust-section и т.д.)
+
+public/
+  images/            # Папка для изображений, доступных по URL /images/... (логотип, декоративные элементы)
+
+tailwind.config.ts   # Конфигурация Tailwind
+next.config.mjs      # Конфигурация Next.js
+```
+
+## Роутинг
+
+- `/` — редирект на `/proforientation`
+- `/proforientation` — основной раздел с контентом
+- `/menti` — заглушка (контент будет добавлен позднее)
+- `/mentors` — заглушка (контент будет добавлен позднее)
+
+## Навигация (Header)
+
+- Файл: `components/header.tsx`
+- Ссылки: «Менти» → `/menti`, «Менторам» → `/mentors`, «Профориентация» → `/proforientation`
+- Подсветка активной ссылки: цвет `#40758C`
+- Мобильное меню: выпадающее, открывается по кнопке-бургеру (три полоски), закрывается по клику на пункт
+- Бургер доступен и на десктопе
+
+## Работа с изображениями
+
+- Для `next/image` пути вида `src="/images/..."` обслуживаются из папки `public/images/`
+- Обязательно положите файлы в `public/images/` (например, `public/images/LOGO.png`)
+- Декоративные изображения в `hero-section` временно отключены; чтобы включить — добавьте необходимые файлы и раскомментируйте блоки
+
+## Запуск и разработка
+
+Установка зависимостей:
+
+```bash
+npm install
+```
+
+Запуск dev-сервера:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Откройте http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Сборка и предпросмотр продакшн-сборки:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Деплой
 
-## Learn More
+Рекомендуется деплой на Vercel: https://vercel.com/
 
-To learn more about Next.js, take a look at the following resources:
+Документация Next.js по деплою: https://nextjs.org/docs/app/building-your-application/deploying
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Настройка/кастомизация
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Изменение цветов:
+  - Акцент навигации: правьте в `components/header.tsx` (значение `#40758C`)
+  - Базовый фон: `app/proforientation/page.tsx` и глобально через Tailwind классы
+- Отступы в Header:
+  - Левый отступ: `pl-8` (mobile), `md:pl-36` (desktop)
+  - Промежутки между пунктами меню: `gap-12`
+- Добавление изображений:
+  - Кладите файлы в `public/images/`
+  - Обновляйте пути `src="/images/имя_файла"`
 
-## Deploy on Vercel
+## Известные нюансы
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Если изображения не отображаются (404) — проверьте, что файл действительно лежит в `public/images/` и путь совпадает с регистром символов
+- Для анимаций в некоторых секциях используется Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Планы
+
+- Заполнить контент для «Менти» и «Менторам»
+- Вернуть декоративные изображения в `hero-section` после добавления ассетов
+- Добавить закрытие мобильного меню по клику вне области (если будет необходимо)
