@@ -66,7 +66,7 @@ export function Header() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className={`block px-4 py-3 text-base font-semibold ${active ? "text-[#40758C]" : "text-white"}`}
+                        className={`block px-4 py-3 text-base font-light ${active ? "text-[#40758C]" : "text-white"}`}
                         onClick={() => setOpen(false)}
                       >
                         {item.label}

@@ -35,8 +35,8 @@ export function FindYourselfWidget() {
   const steps = useMemo(
     () => [
       {
-        title: "Обучись практичным навыкам",
-        desc: "Решай реальные задачи, которые пригодятся в карьере, и оттачивай навыки",
+        title: "Обучись практическим навыкам",
+        desc: "Решай реальные задачи, которые пригодятся в карьере",
         Icon: GraduationCap,
         place: "top" as const,
       },
@@ -47,8 +47,8 @@ export function FindYourselfWidget() {
         place: "bottom" as const,
       },
       {
-        title: "Получи первый офер в компанию",
-        desc: "При успешном выполнении задач получи офер в компанию",
+        title: "Получи первый оффер в компанию",
+        desc: "При успешном выполнении задач получи оффер в компанию",
         Icon: Briefcase,
         place: "top" as const,
       },
@@ -122,7 +122,7 @@ export function FindYourselfWidget() {
 
   return (
     <section
-      className="relative mx-auto w-[90vw] max-w-[1200px] mt-8 md:mt-12"
+      className="relative mx-auto w-[90vw] max-w-[1200px] mt-0 md:mt-12"
       aria-label="Найди себя — 3 шага"
     >
       {/* Карточка‑контейнер */}

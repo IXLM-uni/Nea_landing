@@ -177,7 +177,39 @@ export default function ProjectsGallery({ className = "" }: { className?: string
   return (
     <section className={`relative mx-auto w-[90vw] max-w-[1200px] ${className}`} aria-label="Галерея проектов">
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#2A2A2A]/60 backdrop-blur-xl">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_1fr] gap-8 p-6 md:p-10 items-start">
+        {/* Заголовок и селектор проектов сверху */}
+        <div className="border-b border-white/10 bg-black/10 p-4 md:p-6">
+          <h2 className="text-white text-2xl md:text-3xl font-bold">Примеры проектов</h2>
+          <div className="mt-3 flex gap-4 overflow-x-auto">
+            {projects.map((pp, i) => (
+              <button
+                key={pp.id}
+                onClick={() => setActive(i)}
+                className={`relative shrink-0 overflow-hidden rounded-lg h-24 w-36 md:h-28 md:w-44 transition-colors ${
+                  active === i
+                    ? "bg-gradient-to-br from-[#40758C]/40 to-[#305869]/25 border border-[#40758C]/40"
+                    : "bg-white/5 hover:bg-white/10"
+                }`}
+              >
+                <div className="absolute inset-0 grid place-items-center bg-transparent">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {pp.mentor.companyLogo && (
+                    <img
+                      src={pp.mentor.companyLogo}
+                      alt={pp.project.company}
+                      className="h-10 md:h-12 object-contain"
+                    />
+                  )}
+                </div>
+                <div className="absolute left-2 bottom-2 right-2 text-xs font-medium text-white/90 truncate">
+                  {pp.project.company}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_1fr] gap-8 p-6 md:p-10 items-start min-h-[560px]">
           {/* Левая колонка: карточка проекта */}
           <div className="rounded-2xl border border-white/10 bg-black/20 p-6 text-center">
             <div className="flex items-center justify-center gap-3">
@@ -220,24 +252,7 @@ export default function ProjectsGallery({ className = "" }: { className?: string
           </div>
         </div>
 
-        {/* Нижняя лента превью проектов: логотипы компаний */}
-        <div className="border-t border-white/10 bg-black/10">
-          <div className="flex gap-4 overflow-x-auto p-4">
-            {projects.map((pp, i) => (
-              <button
-                key={pp.id}
-                onClick={() => setActive(i)}
-                className={`relative shrink-0 overflow-hidden rounded-lg h-24 w-36 md:h-28 md:w-44 transition ring-2 ${active === i ? "ring-[#40758C]" : "ring-transparent hover:ring-white/30"}`}
-              >
-                <div className="absolute inset-0 grid place-items-center bg-white/5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  {pp.mentor.companyLogo && <img src={pp.mentor.companyLogo} alt={pp.project.company} className="h-10 md:h-12 object-contain" />}
-                </div>
-                <div className="absolute left-2 bottom-2 right-2 text-xs font-medium text-white/90 truncate">{pp.project.title}</div>
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Селектор перенесён наверх */}
       </div>
     </section>
   )

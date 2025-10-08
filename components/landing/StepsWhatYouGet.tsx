@@ -147,9 +147,9 @@ export default function StepsWhatYouGet() {
             <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
               <div className="text-white/90 text-base md:text-lg">Как устроена работа</div>
               <ul className="mt-3 space-y-2 text-white/80">
-                <li>— Проект длится 2 недели и включает 4 спринта по ~3 дня</li>
+                <li>— Проект длится 2 недели и делится на 4 спринта по 3 дня. </li>
                 <li>— Спринты: Понедельник–Среда и Среда–Суббота (командная работа)</li>
-                <li>— Нагрузка: ориентир ~10 часов на весь период</li>
+                <li>— Нагрузка: примерно 10 часов на весь проект</li>
               </ul>
             </div>
 

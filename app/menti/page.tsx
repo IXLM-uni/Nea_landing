@@ -14,10 +14,9 @@ export default function MentiPage() {
 
         {/* Блок доверия с галереей менторов */}
         <section className="mt-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">Прокачайся рядом с опытными менторами</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">От человека к человеку</h2>
           <p className="text-white/80 mt-3 max-w-3xl text-lg">
-            Учись у практиков из топовых российских и международных компаний. Получай обратную связь, задавай вопросы и
-            собирай портфолио из реальных задач — так ты быстрее выйдешь на первый оффер.
+            Из девиза появился проект Nea. Здесь ты решаешь реальные бизнес-задачи и перенимаешь опыт у менторов, профессионалов в своей профессии. Только через практику можно быстрее выйти на оффер
           </p>
           <MentorsGallery className="mt-6" />
         </section>

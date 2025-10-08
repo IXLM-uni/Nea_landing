@@ -6,27 +6,27 @@ import { Crown, FlaskConical, Users } from "lucide-react"
 const BRAND = "#305869"
 const BRAND_LIGHT = "#40758C"
 
-export default function MentorWhatYouGet() {
+export default function MentorWhatYouGet({ className = "mt-16" }: { className?: string }) {
   const items = [
     {
-      title: "Навыки управления и лидирования",
+      title: "Получи опыт управления проектами",
       desc: "От постановки целей до обратной связи и синхронизации команды.",
       Icon: Crown,
     },
     {
-      title: "Проверенная гипотеза за 2 недели",
+      title: "Реализуй свои идеи",
       desc: "Запускаем быстрый пилот и собираем метрики, чтобы принять решение.",
       Icon: FlaskConical,
     },
     {
-      title: "Последователи",
+      title: "Вступай в сообщество опытных специалистов",
       desc: "Комьюнити людей, которые разделяют ваш подход и идеи.",
       Icon: Users,
     },
   ]
 
   return (
-    <section className="relative mx-auto w-[90vw] max-w-[1200px] mt-16" aria-label="Что конкретно я получу — для ментора">
+    <section className={`relative mx-auto w-[90vw] max-w-[1200px] ${className}`} aria-label="Что конкретно я получу — для ментора">
       <div className="relative overflow-hidden rounded-2xl border-[0.5px] border-white/10 bg-[#2A2A2A]/60 backdrop-blur-2xl">
         {/* Световые источники */}
         <div className="pointer-events-none absolute inset-0">

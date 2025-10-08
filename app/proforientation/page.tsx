@@ -9,6 +9,7 @@ import { ActionButtons } from "@/components/action-buttons"
 import { FixedBottomButton } from "@/components/fixed-bottom-button"
 import { AnimatedBackground } from "@/components/animated-background"
 import { AnimatedTestButton } from "@/components/animated-test-button"
+import FinalCTA from "@/components/landing/FinalCTA"
 import Image from "next/image"
 
 export default function ProforientationPage() {
@@ -25,10 +26,13 @@ export default function ProforientationPage() {
         <AnimatedTestButton />
         
         <FreeService />
-        <TrustSection />
+        <TrustSection hideStats />
         <ActionButtons />
       </main>
       <FixedBottomButton />
+      <div className="mb-16">
+        <FinalCTA />
+      </div>
     </div>
   )
 }

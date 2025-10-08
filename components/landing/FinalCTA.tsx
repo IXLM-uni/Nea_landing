@@ -29,7 +29,7 @@ export default function FinalCTA() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#305869] hover:bg-[#40758C] transition text-white font-semibold px-6 py-3 shadow-[0_2px_10px_rgba(0,0,0,.25)] hover:shadow-[0_0_22px_rgba(64,117,140,.55)] hover:scale-[1.02]"
           >
-            <FileCheck2 size={18} /> Подать заявку на проект
+            <FileCheck2 size={18} /> Принять участие в проекте
           </a>
 
           <a
