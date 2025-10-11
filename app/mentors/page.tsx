@@ -8,9 +8,9 @@ import MentorStickyCTA from "@/components/landing/MentorStickyCTA"
 export default function MentorsPage() {
   return (
     <div className="min-h-screen bg-[#2A2A2A] text-white">
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 pt-24 pb-28">
-        {/* WhatYouGet — Что конкретно я получу (поднято наверх, минимальный отступ) */}
-        <MentorWhatYouGet className="mt-4" />
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 pt-10 md:pt-24 pb-28">
+        {/* WhatYouGet — Что конкретно я получу (поднято наверх, без отступа на мобилке) */}
+        <MentorWhatYouGet className="mt-0 md:mt-4" />
 
         {/* Короткий Intro — кто мы */}
         <section className="mt-16">

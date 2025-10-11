@@ -191,32 +191,22 @@ export default function ProjectsGallery({ className = "" }: { className?: string
                     : "bg-white/5 hover:bg-white/10"
                 }`}
               >
-                <div className="absolute inset-0 grid place-items-center bg-transparent">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  {pp.mentor.companyLogo && (
-                    <img
-                      src={pp.mentor.companyLogo}
-                      alt={pp.project.company}
-                      className="h-10 md:h-12 object-contain"
-                    />
-                  )}
-                </div>
-                <div className="absolute left-2 bottom-2 right-2 text-xs font-medium text-white/90 truncate">
-                  {pp.project.company}
+                <div className="absolute inset-0 grid place-items-center bg-transparent px-2 text-center">
+                  {/** Вместо логотипа — крупное название компании по центру */}
+                  <div className="text-white font-semibold text-sm md:text-base lg:text-lg leading-snug line-clamp-2">
+                    {pp.project.company}
+                  </div>
                 </div>
               </button>
             ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_1fr] gap-8 p-6 md:p-10 items-start min-h-[560px]">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_1fr] gap-8 p-6 md:p-10 items-start md:min-h-[560px]">
           {/* Левая колонка: карточка проекта */}
           <div className="rounded-2xl border border-white/10 bg-black/20 p-6 text-center">
-            <div className="flex items-center justify-center gap-3">
-              {p.mentor.companyLogo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={p.mentor.companyLogo} alt={p.project.company} className="h-10 md:h-12 object-contain" />
-              ) : null}
+            <div className="flex items-center justify-center">
+              {/** Логотипы скрыты по запросу — оставляем только крупный заголовок компании */}
               <div className="text-white/90 font-bold text-2xl md:text-4xl leading-tight">{p.project.company}</div>
             </div>
             <h3 className="mt-3 text-2xl text-white leading-tight">{p.project.title}</h3>
